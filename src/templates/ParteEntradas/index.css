@@ -1,0 +1,7 @@
+.select2-selection, .select2-selection--single{
+    padding-top:2px;
+    min-height:32px !important
+}
+.gj-icon{
+    margin-top:-3px;
+}

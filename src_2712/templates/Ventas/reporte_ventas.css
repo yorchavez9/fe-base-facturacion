@@ -1,0 +1,29 @@
+.gj-icon{
+    margin-top:-3px;
+}
+
+.btn-search{
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}
+.gj-datepicker .btn{
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    border-right: none !important;
+}
+
+.verificado {
+    color: #069068;
+    text-decoration: none !important;
+}
+.no-verificado {
+    color: #6c757d;
+    text-decoration: none !important;
+}
+
+.aceptado {
+    color: #33FF33;
+}
+.no-aceptado{
+    color: #AD2001;
+}
