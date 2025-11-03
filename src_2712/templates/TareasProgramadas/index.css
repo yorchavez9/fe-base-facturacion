@@ -1,8 +1,0 @@
-.td_estado_act{
-    border-color: var(--success);
-}
-
-.td_estado_inact{
-    border-color: var(--danger);
-
-}
