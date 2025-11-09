@@ -1,0 +1,277 @@
+/**
+ * Custom Theme Overrides
+ * Color Primario: #3F37C9
+ * Aplicado a todo el sistema
+ */
+
+/* Variables CSS personalizadas */
+:root {
+    --primary: #3F37C9;
+    --primary-hover: #3228a8;
+    --primary-active: #2b2290;
+    --primary-light: #6b63e0;
+    --primary-lighter: #9b96ed;
+}
+
+/* Botones Primarios */
+.btn-primary {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    border-radius: 0.5rem !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover) !important;
+    border-color: var(--primary-hover) !important;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+    background-color: var(--primary-hover) !important;
+    border-color: var(--primary-hover) !important;
+    box-shadow: 0 0 0 0.2rem rgba(63, 55, 201, 0.5) !important;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active {
+    background-color: var(--primary-active) !important;
+    border-color: var(--primary-active) !important;
+}
+
+/* Border radius para todos los botones */
+.btn {
+    border-radius: 0.5rem !important;
+}
+
+.btn-sm {
+    border-radius: 0.4rem !important;
+}
+
+.btn-lg {
+    border-radius: 0.6rem !important;
+}
+
+/* Inputs y Forms */
+.form-control {
+    border-radius: 0.5rem !important;
+}
+
+.form-control:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 0.2rem rgba(63, 55, 201, 0.25) !important;
+}
+
+.custom-select {
+    border-radius: 0.5rem !important;
+}
+
+.custom-select:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 0.2rem rgba(63, 55, 201, 0.25) !important;
+}
+
+/* Cards */
+.card {
+    border-radius: 0.5rem !important;
+}
+
+.card-header {
+    border-radius: 0.5rem 0.5rem 0 0 !important;
+}
+
+/* Modals */
+.modal-content {
+    border-radius: 0.5rem !important;
+}
+
+.modal-header {
+    border-radius: 0.5rem 0.5rem 0 0 !important;
+}
+
+/* Badges */
+.badge {
+    border-radius: 0.4rem !important;
+}
+
+.badge-primary {
+    background-color: var(--primary) !important;
+}
+
+/* Alerts */
+.alert {
+    border-radius: 0.5rem !important;
+}
+
+/* Links y colores primarios */
+a {
+    color: var(--primary);
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary) !important;
+}
+
+/* Progress bars */
+.progress {
+    border-radius: 0.5rem !important;
+}
+
+.progress-bar {
+    background-color: var(--primary) !important;
+}
+
+/* Pagination */
+.page-item.active .page-link {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+.page-link {
+    border-radius: 0.4rem !important;
+    color: var(--primary);
+}
+
+.page-link:hover {
+    color: var(--primary-hover);
+}
+
+/* Nav tabs y pills */
+.nav-pills .nav-link.active {
+    background-color: var(--primary) !important;
+    border-radius: 0.5rem !important;
+}
+
+.nav-pills .nav-link {
+    border-radius: 0.5rem !important;
+}
+
+/* Dropdown */
+.dropdown-menu {
+    border-radius: 0.5rem !important;
+}
+
+/* Checkbox y radio personalizado */
+.custom-control-input:checked ~ .custom-control-label::before {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: var(--primary) !important;
+}
+
+.custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: var(--primary) !important;
+}
+
+/* Switch */
+.custom-switch .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+/* Tablas */
+.table-primary {
+    background-color: rgba(63, 55, 201, 0.1) !important;
+}
+
+.table-hover .table-primary:hover {
+    background-color: rgba(63, 55, 201, 0.2) !important;
+}
+
+/* Tooltips */
+.tooltip {
+    border-radius: 0.4rem !important;
+}
+
+/* Popovers */
+.popover {
+    border-radius: 0.5rem !important;
+}
+
+/* List group */
+.list-group-item {
+    border-radius: 0.5rem !important;
+}
+
+.list-group-item.active {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    border-radius: 0.5rem !important;
+}
+
+/* Input group */
+.input-group-text {
+    border-radius: 0.5rem !important;
+}
+
+/* Spinners */
+.spinner-border-primary {
+    border-color: var(--primary) !important;
+    border-right-color: transparent !important;
+}
+
+/* Custom file input */
+.custom-file-label {
+    border-radius: 0.5rem !important;
+}
+
+/* Jumbotron */
+.jumbotron {
+    border-radius: 0.5rem !important;
+}
+
+/* Toast */
+.toast {
+    border-radius: 0.5rem !important;
+}
+
+/* Outline buttons */
+.btn-outline-primary {
+    color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    border-radius: 0.5rem !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: #fff !important;
+}
+
+.btn-outline-primary:focus,
+.btn-outline-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(63, 55, 201, 0.5) !important;
+}
+
+/* Asegurar que los focus states usen el nuevo color */
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 0.2rem rgba(63, 55, 201, 0.25) !important;
+}
+
+/* Links de navegación activos */
+.nav-link.active {
+    color: var(--primary) !important;
+}
+
+/* Sidebar y navigation */
+.sidebar .nav-link.active {
+    background-color: var(--primary) !important;
+    color: #fff !important;
+    border-radius: 0.5rem !important;
+}
