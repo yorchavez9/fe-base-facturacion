@@ -79,7 +79,7 @@
 <div class="d-flex" id="wrapper" >
     <div class="bg-primary " id="sidebar-wrapper" style="background-color: <?= $global_brand_data['global_color_bg2'] ?> !important;">
         <nav id="sidebar" >
-            <div class="sidebar-heading text-center p-2">
+            <div class="sidebar-heading text-center p-1">
                 <span class="navbar-brand">
                     <?php
                     $global_brand_data['global_logo'] = isset($global_brand_data['global_logo']) ? $global_brand_data['global_logo'] : "";

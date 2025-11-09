@@ -57,10 +57,9 @@
             border: none;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
-            background: <?= isset($global_brand_data['login_fondo']) ? $global_brand_data['login_fondo'] : "rgba(255, 255, 255, 0.95)" ?>;
-            color: <?= isset($global_brand_data['login_color_txt']) ? $global_brand_data['login_color_txt'] : "#2c3e50" ?>;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.6s ease;
         }
 
         .card:hover {
@@ -75,7 +74,6 @@
         .logo-container {
             text-align: center;
             margin-bottom: 2rem;
-            padding: 1rem;
         }
 
         .logo-container img {
@@ -140,6 +138,7 @@
             color: #2d3748;
             flex: 1;
             height: 100%;
+            width: 100%;
         }
 
         .pwd-toggle {
@@ -266,10 +265,6 @@
             }
         }
 
-        .card {
-            animation: fadeInUp 0.6s ease;
-        }
-
         /* Flash messages */
         .alert {
             border-radius: 0.75rem;
@@ -361,41 +356,42 @@
                         <div class="card-body">
                             <?= $this->Form->create(null);?>
 
-                    <div class="logo-container">
-                        <?php
-                        $logo_ruta = "/" . isset($global_brand_data['global_logo']) ? $global_brand_data['global_logo'] : "";
-                        $logo_por_defecto = true;
-                        if (!(file_exists($global_brand_data['global_logo']))) {
-                            $logo_ruta = "/media/default_logo.png";
-                            $logo_por_defecto = false;
-                        }
-                        echo $this->Html->Image($logo_ruta, ['class'=> 'img img-fluid','pathPrefix' => '']);
-                        ?>
-                    </div>
-
-                    <fieldset>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Usuario / Correo" name="usuario" id="usuarioLogin" type="text" autofocus autocomplete="off" value="<?= $usuario?>">
-                        </div>
-                        <div class="form-group">
-                            <div class="div-pwd-input">
-                                <input class="pwd-input" placeholder="Clave" name="clave" id="claveLogin" type="password" autocomplete="current-password">
-                                <div class="pwd-toggle" id="div_show_pwd" data-status="false" onclick="showPwd()">
-                                    <i class="fas fa-eye"></i>
-                                </div>
+                            <div class="logo-container">
+                                <?php
+                                $logo_ruta = "/" . isset($global_brand_data['global_logo']) ? $global_brand_data['global_logo'] : "";
+                                $logo_por_defecto = true;
+                                if (!(file_exists($global_brand_data['global_logo']))) {
+                                    $logo_ruta = "/media/default_logo.png";
+                                    $logo_por_defecto = false;
+                                }
+                                echo $this->Html->Image($logo_ruta, ['class'=> 'img img-fluid','pathPrefix' => '']);
+                                ?>
                             </div>
-                        </div>
 
-                        <button type="submit" class="btn btn-login" id="btnLogin">
-                            <i class="fa fa-sign-in-alt fa-fw"></i> Ingresar
-                        </button>
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Usuario / Correo" name="usuario" id="usuarioLogin" type="text" autofocus autocomplete="off" value="<?= $usuario?>">
+                                </div>
+                                <div class="form-group">
+                                    <div class="div-pwd-input">
+                                        <input class="pwd-input" placeholder="Clave" name="clave" id="claveLogin" type="password" autocomplete="current-password">
+                                        <div class="pwd-toggle" id="div_show_pwd" data-status="false" onclick="showPwd()">
+                                            <i class="fas fa-eye"></i>
+                                        </div>
+                                    </div>
+                                </div>
 
-                        <div class="recuperar-clave">
-                            <a href="javascript:void(0);" onclick="copyUsuarioToDialog()" data-toggle="modal" data-target="#recuperarClave">
-                                <i class="fas fa-key fa-sm"></i> ¿Olvidaste tu contraseña?
-                            </a>
-                        </div>
-                    </fieldset>
+                                <button type="submit" class="btn btn-login" id="btnLogin">
+                                    <i class="fa fa-sign-in-alt fa-fw"></i> Ingresar
+                                </button>
+
+                                <div class="recuperar-clave">
+                                    <a href="javascript:void(0);" onclick="copyUsuarioToDialog()" data-toggle="modal" data-target="#recuperarClave">
+                                        <i class="fas fa-key fa-sm"></i> ¿Olvidaste tu contraseña?
+                                    </a>
+                                </div>
+                            </fieldset>
+
                             <?= $this->Form->end() ?>
 
                         </div>
