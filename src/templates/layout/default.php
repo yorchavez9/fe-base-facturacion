@@ -41,7 +41,7 @@
     }
     echo $this->Html->ScriptBlock("var base = '" . $this->Url->Build("/intranet/", ['fullBase' => true]) . "'");
     echo $this->Html->ScriptBlock("var base_root = '" . $this->Url->Build("/", ['fullBase' => true]) . "'");
-    echo $this->Html->ScriptBlock("var API_FE = " . ($flag_dev ? "'http://localhost/fe-api'" : "'https://demo.profecode.com/fe-api'" ) );
+    echo $this->Html->ScriptBlock("var API_FE = " . ($flag_dev ? "'http://localhost/fe-api'" : "'https://fepi.apuuraydev.com/fe-api'" ) );
 
     // echo $this->Html->Script("https://cdn.jsdelivr.net/npm/vue@2");
     echo $this->Html->Script("/assets/vue/vue.min.js");

@@ -463,6 +463,7 @@
                 url     :   endpoint,
                 data    :   '',
                 type    :   'GET',
+                dataType:   'json',
 
                 success :   function (data, status, xhr) {// success callback function
                     console.log(data);
@@ -471,13 +472,19 @@
                         printJS({printable: data.data, type: 'pdf', base64: true, modalMessage: 'Cargando Documento'});
 
                     }else{
-                        alert(data.message);
+                        alert('Error: ' + data.message);
                     }
 
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                    alert(xhr.status);
-                    alert(thrownError);
+                    console.error('Error en la petición:', xhr.responseText);
+                    if (xhr.status === 404) {
+                        alert('No se encontró el comprobante electrónico para esta venta');
+                    } else if (xhr.responseText && xhr.responseText.includes('<!DOCTYPE')) {
+                        alert('Error: El servidor devolvió una página HTML en lugar de datos JSON. Verifica que la venta tenga un comprobante electrónico emitido.');
+                    } else {
+                        alert('Error al imprimir: ' + (thrownError || 'Error desconocido'));
+                    }
                 }
             });
 

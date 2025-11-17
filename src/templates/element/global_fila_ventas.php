@@ -53,10 +53,10 @@
                         <i class="fas fa-download fa-fw"></i> Descargar y Enviar
                         <i class="fab fa-whatsapp fa-fw"></i> ó <i class="fas fa-envelope fa-fw"></i>
                     </a> -->
-                    <!-- <a style="color: black;" class="dropdown-item" href="<?= $flag_dev ? 'http://localhost/fe-api/sunat-fe-facturas/pdf-a4/' : 'https://demo.profecode.com/fe-api/pdf-a4/' ?><?= $v->id?>" target="_blank" >
+                    <!-- <a style="color: black;" class="dropdown-item" href="<?= $flag_dev ? 'http://localhost/fe-api/sunat-fe-facturas/pdf-a4/' : 'https://fepi.apuuraydev.com/fe-api/pdf-a4/' ?><?= $v->id?>" target="_blank" >
                         <i class="fas fa-print fa-fw"></i> PDF A4
                     </a>
-                    <a style="color: black;" class="dropdown-item" href="<?= $flag_dev ? 'http://localhost/fe-api/sunat-fe-facturas/pdf-ticket/' : 'https://demo.profecode.com/fe-api/pdf-ticket/' ?><?= $v->id?>" target="_blank" >
+                    <a style="color: black;" class="dropdown-item" href="<?= $flag_dev ? 'http://localhost/fe-api/sunat-fe-facturas/pdf-ticket/' : 'https://fepi.apuuraydev.com/fe-api/pdf-ticket/' ?><?= $v->id?>" target="_blank" >
                         <i class="fas fa-print fa-fw"></i> PDF Ticket
                     </a> -->
                     <!-- <div class="dropdown-divider"></div> -->

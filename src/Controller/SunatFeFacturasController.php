@@ -48,32 +48,49 @@ class SunatFeFacturasController extends AppController
      * @return \Cake\Http\Response JSON con el PDF en base64
      */
     public function apiImprimirPdf($venta_id, $formato = 'a4'){
+        $this->autoRender = false;
+
         try {
             // Obtener el PDF del API externa usando venta_id
-            $flag_dev = $this->getConfig('flag_dev', true);
-            $api_base = $flag_dev ? 'http://localhost/fe-api/' : 'https://demo.profecode.com/fe-api/';
+            $flag_dev = $this->getConfig('flag_dev', false);
+            $api_base = $flag_dev ? 'http://localhost/fe-api/' : 'https://fepi.apuuraydev.com/fe-api/';
             $url = $api_base . "sunat-fe-facturas/api-imprimir-pdf-por-venta/{$venta_id}/{$formato}";
 
             // Usar file_get_contents para obtener la respuesta JSON del API
             $context = stream_context_create([
                 'http' => [
                     'timeout' => 30,
-                    'ignore_errors' => true
+                    'ignore_errors' => true,
+                    'header' => 'Accept: application/json'
                 ]
             ]);
 
             $json_response = @file_get_contents($url, false, $context);
 
-            if ($json_response !== false) {
-                // El API ya retorna JSON con el PDF en base64
-                return $this->response
-                    ->withType('application/json')
-                    ->withStringBody($json_response);
+            if ($json_response !== false && !empty($json_response)) {
+                // Verificar si la respuesta es JSON válido
+                $decoded = json_decode($json_response);
+                if (json_last_error() === JSON_ERROR_NONE) {
+                    // El API ya retorna JSON con el PDF en base64
+                    return $this->response
+                        ->withType('application/json')
+                        ->withStringBody($json_response);
+                } else {
+                    // La respuesta no es JSON válido
+                    $respuesta = [
+                        'success'   =>  false,
+                        'data'      =>  '',
+                        'message'   =>  'El servidor devolvió una respuesta no válida'
+                    ];
+                    return $this->response
+                        ->withType('application/json')
+                        ->withStringBody(json_encode($respuesta));
+                }
             } else {
                 $respuesta = [
                     'success'   =>  false,
-                    'data'      =>  "Error al conectar con el servidor de facturación.",
-                    'message'   =>  'Error de conexión con API'
+                    'data'      =>  '',
+                    'message'   =>  'Error al conectar con el servidor de facturación'
                 ];
                 return $this->response
                     ->withType('application/json')
@@ -82,8 +99,8 @@ class SunatFeFacturasController extends AppController
         } catch (\Exception $e) {
             $respuesta = [
                 'success'   =>  false,
-                'data'      =>  "Error: " . $e->getMessage(),
-                'message'   =>  'Error de conexión'
+                'data'      =>  '',
+                'message'   =>  'Error: ' . $e->getMessage()
             ];
             return $this->response
                 ->withType('application/json')
@@ -101,8 +118,8 @@ class SunatFeFacturasController extends AppController
      */
     public function descargarPdf($venta_id, $formato = 'a4'){
         // Redirigir al API externa usando el endpoint que busca por venta_id
-        $flag_dev = $this->getConfig('flag_dev', true);
-        $api_base = $flag_dev ? 'http://localhost/fe-api/' : 'https://demo.profecode.com/fe-api/';
+        $flag_dev = $this->getConfig('flag_dev', false);
+        $api_base = $flag_dev ? 'http://localhost/fe-api/' : 'https://fepi.apuuraydev.com/fe-api/';
         $url = $api_base . "sunat-fe-facturas/descargar-pdf-por-venta/{$venta_id}/{$formato}";
 
         return $this->redirect($url);

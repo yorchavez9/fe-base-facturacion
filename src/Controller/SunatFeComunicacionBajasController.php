@@ -30,7 +30,7 @@ class SunatFeComunicacionBajasController extends AppController
         $this->autoRender = false;
 
         $flag_dev = $this->getConfig('flag_dev', true);
-        $api_base = $flag_dev ? 'http://localhost/fe-api/' : 'https://demo.profecode.com/fe-api/';
+        $api_base = $flag_dev ? 'http://localhost/fe-api/' : 'https://fepi.apuuraydev.com/fe-api';
 
         $url = $api_base . 'sunat-fe-comunicacion-bajas/listar';
 
@@ -75,7 +75,7 @@ class SunatFeComunicacionBajasController extends AppController
     public function view($id = null)
     {
         $flag_dev = $this->getConfig('flag_dev', true);
-        $api_base = $flag_dev ? 'http://localhost/fe-api/' : 'https://demo.profecode.com/fe-api/';
+        $api_base = $flag_dev ? 'http://localhost/fe-api/' : 'https://fepi.apuuraydev.com/fe-api';
 
         $url = $api_base . 'sunat-fe-comunicacion-bajas/view/' . $id;
 
@@ -119,7 +119,7 @@ class SunatFeComunicacionBajasController extends AppController
     public function descargarXml($id = null)
     {
         $flag_dev = $this->getConfig('flag_dev', true);
-        $api_base = $flag_dev ? 'http://localhost/fe-api/' : 'https://demo.profecode.com/fe-api/';
+        $api_base = $flag_dev ? 'http://localhost/fe-api/' : 'https://fepi.apuuraydev.com/fe-api';
 
         $url = $api_base . 'sunat-fe-comunicacion-bajas/descargar-xml/' . $id;
 
@@ -135,7 +135,7 @@ class SunatFeComunicacionBajasController extends AppController
     public function descargarCdr($id = null)
     {
         $flag_dev = $this->getConfig('flag_dev', true);
-        $api_base = $flag_dev ? 'http://localhost/fe-api/' : 'https://demo.profecode.com/fe-api/';
+        $api_base = $flag_dev ? 'http://localhost/fe-api/' : 'https://fepi.apuuraydev.com/fe-api';
 
         $url = $api_base . 'sunat-fe-comunicacion-bajas/descargar-cdr/' . $id;
 
